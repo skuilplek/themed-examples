@@ -55,4 +55,4 @@ Follow these instructions to set up and run the project locally using Docker:
 
 ## License
 
-This project is licensed under the terms detailed in [LICENSE.md](LGPLv3+).
+This project is licensed under the terms detailed in [LGPLv3+](LICENSE.md).
