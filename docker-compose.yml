@@ -1,7 +1,7 @@
 services:
   app:
-    container_name: sk-themed-php8.3
-    image: sk-themed-php8.3
+    container_name: themed-example
+    image: themed-example
     build:
       context: ./docker
       dockerfile: Dockerfile

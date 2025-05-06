@@ -27,7 +27,6 @@ RUN apt-get install -y --no-install-recommends \
     zip \
     curl \
     httrack \
-    apache2 \
     php${PHP_VERSION} \
     libapache2-mod-php${PHP_VERSION} \
     php${PHP_VERSION}-xdebug \
@@ -43,14 +42,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www/html
 
-# Install dependencies will be handled at container startup or via volume mount
-# RUN composer install --no-interaction
-
 # Copy PHP configuration
 COPY php-${PHP_VERSION}.ini-development /etc/php/${PHP_VERSION}/apache2/php.ini
 
 # Make bootstrap script executable
-RUN chown -R www-data:www-data /var/www/html/*
+RUN chown -R www-data:www-data /var/www/html
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -65,5 +61,5 @@ RUN a2enmod rewrite headers php${PHP_VERSION}
 # Expose port for web server
 EXPOSE 80
 
-# Start Apache
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+# Run composer and start Apache
+CMD ["sh", "-c", "composer install --no-interaction --working-dir=/var/www/html ; apache2ctl -D FOREGROUND"]
