@@ -1,0 +1,10 @@
+# Disable directory listing
+Options -Indexes
+
+# Redirect *.md links to index.php?read=<filename>.md
+RewriteRule ^(.*\.md)$ index.php?read=$1 [QSA,L]
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]

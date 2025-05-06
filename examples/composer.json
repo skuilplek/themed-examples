@@ -1,0 +1,12 @@
+{
+    "require": {
+        "erusev/parsedown": "^1.7",
+        "skuilplek/themed": "^1.0"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../"
+        }
+    ]
+}
