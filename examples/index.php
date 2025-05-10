@@ -25,7 +25,7 @@ foreach ($folders as $folder) {
             $exists = '';
             $exampleFile = __DIR__ . '/' . basename($folder) . '/' . basename($file, '.twig') . '.php';
             if (!file_exists($exampleFile)) {
-                $exists = ' [TODO]';
+                $exists = ' ⚠️';
             }
             $fileName = str_replace('-', ' ', basename($file, '.twig'));
             $dropdownItems[] = [

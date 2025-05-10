@@ -145,7 +145,7 @@ $output .= ThemedComponent::make('layout/section')
     ->content($iconGallery)
     ->render();
 
-// ##################  Show fill .twig template for this component ##################
+// ##################  Show full .twig template for this component ##################
 $output .= showCOmponentTemplate($component);
 
 echo $output;

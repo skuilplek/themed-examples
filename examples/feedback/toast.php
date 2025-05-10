@@ -322,7 +322,7 @@ $content .= ThemedComponent::make('layout/section')
     ->content($richContentToastsContent)
     ->render();
 
-// ##################  Show fill .twig template for this component ##################
+// ##################  Show full .twig template for this component ##################
 $content .= showComponentTemplate($component);
 
 // Render the complete page

@@ -233,7 +233,7 @@ $content .= ThemedComponent::make('layout/section')
     ->subtitle('Fullscreen modals take up the entire screen for immersive experiences.')
     ->render();
 
-// ##################  Show fill .twig template for this component ##################
+// ##################  Show full .twig template for this component ##################
 $content .= showComponentTemplate($component);
 
 $styles = "

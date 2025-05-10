@@ -189,7 +189,7 @@ $content .= ThemedComponent::make('layout/section')
     ->content($richAlertsContent)
     ->render();
 
-// ##################  Show fill .twig template for this component ##################
+// ##################  Show full .twig template for this component ##################
 $content .= showComponentTemplate($component);
 
 // Render the page with all components

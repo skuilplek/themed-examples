@@ -133,7 +133,9 @@ function showDefaultContent($errorMessage = '')
             ->title('Error')
             ->content($errorMessage)
             ->subtitle('just now')
-            ->icon('bi bi-x-circle')
+            ->icon(ThemedComponent::make('icons/icon')
+                ->name('x-circle')
+                ->render())
             ->variant('danger')
             ->position('top-right')
             ->show(true)
@@ -141,7 +143,7 @@ function showDefaultContent($errorMessage = '')
             ->delay(5000)
             ->render();
     }
-    $sourceFolder = dirname(Themed::getThemePath()) . '/../';
+    $sourceFolder = __DIR__ . '/vendor/skuilplek/themed/';
     $mdFile = "README.md";
     if(isset($_GET['read'])) {
         $tmpFilename = $_GET['read'];
