@@ -42,6 +42,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www/html
 
+# Remove the default icons/ apache alias
+COPY default.conf /etc/apache2/sites-available/000-default.conf
+
 # Copy PHP configuration
 COPY php-${PHP_VERSION}.ini-development /etc/php/${PHP_VERSION}/apache2/php.ini
 

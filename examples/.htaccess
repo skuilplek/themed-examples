@@ -1,5 +1,5 @@
 # Disable directory listing
-Options -Indexes
+Options -Indexes -MultiViews
 
 # Enable rewrite engine
 RewriteEngine On
