@@ -52,9 +52,7 @@ RUN chown -R www-data:www-data /var/www/html
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Configure Apache
-COPY apache.conf /etc/apache2/sites-available/000-default.conf
-
-RUN a2ensite 000-default.conf
+RUN sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 
 RUN a2enmod rewrite headers php${PHP_VERSION}
 

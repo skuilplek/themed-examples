@@ -30,7 +30,7 @@ foreach ($folders as $folder) {
             $fileName = str_replace('-', ' ', basename($file, '.twig'));
             $dropdownItems[] = [
                 'text' => ucwords($fileName) . $exists,
-                'url' => 'index.php?example=' . $folderName . '/' . strtolower(str_replace(' ', '-', $fileName)),
+                'url' => '/' . $folderName . '/' . strtolower(str_replace(' ', '-', $fileName)).'.html',
             ];
         }
 
@@ -51,7 +51,7 @@ $menu[] = [
 ];
 
 // Get and validate the requested component from the URL
-$requestedComponent = $_GET['example'] ?? '';
+$requestedComponent = !empty($_GET['load']) ? str_replace('.html', '', $_GET['load']) : '';
 
 // Sanitize and validate the component path
 // Initialize error message
@@ -90,7 +90,7 @@ if (empty($requestedComponent)) {
 $navBar = ThemedComponent::make('navigation/navbar')
     ->brand([
             'text' => 'Themed',
-            'url' => 'index.php',
+            'url' => '/',
         ])
         ->style('dark')
         ->position('fixed-top')

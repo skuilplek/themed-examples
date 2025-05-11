@@ -152,7 +152,7 @@ function showDefaultContent($errorMessage = '')
         $tmpFilename = preg_replace('/[^a-zA-Z0-9\/._-]/', '', $tmpFilename);
 
         // Prevent directory traversal
-        $tmpFilename = str_replace('../', '', $tmpFilename); 
+        $tmpFilename = basename(str_replace(['../','./'], '', $tmpFilename)); 
 
         if(file_exists($sourceFolder . $tmpFilename)) {
             $mdFile = $tmpFilename;

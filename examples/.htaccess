@@ -1,10 +1,16 @@
 # Disable directory listing
 Options -Indexes
 
-# Redirect *.md links to index.php?read=<filename>.md
-RewriteRule ^(.*\.md)$ index.php?read=$1 [QSA,L]
-
+# Enable rewrite engine
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Redirect /<filename>.md to index.php?read=<filename>.md
+RewriteRule ^([^/]+\.md)$ index.php?read=$1 [QSA,L]
+
+# Redirect /<folder>/<filename>.html to index.php?load=/<folder>/<filename>
+RewriteRule ^([^/]+)/([^/]+\.html)$ index.php?load=$1/$2 [QSA,L]
+
+# Optional: Route non-existing files/directories to index.php (if needed)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ index.php [QSA,L]
